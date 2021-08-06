@@ -10,10 +10,9 @@ lib = . ~/.config/mr/mr-functions
 order = 1
 name = mr-config
 chain = true
-checkout = git clone ssh://git@github.com/wandsas/mr-config.git $MR_REPO
-remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/wandsas/mr-config.git
+checkout = git clone ssh://git@rpi3.homelab/srv/git/mr-android.git
 fixups = 
-	ensure_symlink_exists ~/.mrconfig $MR_REPO/mr-main
+	ensure_symlink_exists ~/.mrconfig $MR_REPO/mrconfig
 	ensure_symlink_exists ~/.stow-global-ignore $MR_REPO/.stow-global-ignore
 
 [$HOME/.password-store]
