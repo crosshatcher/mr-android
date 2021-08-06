@@ -21,7 +21,7 @@ name = pass-crosshatcher
 checkout = git clone ssh://git@rpi3.homelab/srv/git/crosshatcher/pass-crosshatcher.git $MR_REPO
 post_checkout = chmod go-rwx $MR_REPO
 
-[$HOME/.GIT/${USER}/dotfiles-android]
+[$HOME/.GIT/android/dotfiles-android]
 stowable = true
 checkout = git clone ssh://git@rpi3.homelab/srv/git/dotfiles-android.git
 
