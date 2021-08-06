@@ -1,0 +1,84 @@
+# vim:fenc=utf-8:ft=dosini:ts=2:sts=2:sw=2:et:
+
+[DEFAULT]
+include = 
+	cat ~/.config/mr/mr-stow-plugin 2>/dev/null || true
+	cat ~/.config/mr/mr-hooks 2>/dev/null || true
+lib = . ~/.config/mr/mr-functions
+
+[.config/mr]
+order = 1
+name = mr-config
+chain = true
+checkout = git clone ssh://git@github.com/wandsas/mr-config.git $MR_REPO
+remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/wandsas/mr-config.git
+fixups = 
+	ensure_symlink_exists ~/.mrconfig $MR_REPO/mr-main
+	ensure_symlink_exists ~/.stow-global-ignore $MR_REPO/.stow-global-ignore
+
+[$HOME/.password-store]
+name = pass-crosshatcher
+checkout = git clone ssh://git@rpi3.homelab/srv/git/crosshatcher/pass-crosshatcher.git $MR_REPO
+post_checkout = chmod go-rwx $MR_REPO
+
+[$HOME/.GIT/${USER}/dotfiles-android]
+stowable = true
+checkout = git clone ssh://git@rpi3.homelab/srv/git/dotfiles-android.git
+
+[$HOME/.vim]
+checkout = git clone git://github.com/SpaceVim/SpaceVim.git $MR_REPO
+remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/SpaceVim.git
+
+[$HOME/.GIT/dev-vcs/diff-so-fancy]
+checkout = git clone git://github.com/so-fancy/diff-so-fancy.git $MR_REPO
+remote = git_add_remote local ssh://git@rpi3.homelab:/srv/git/diff-so-fancy.git
+fixups = 
+	./third_party/build_fatpack/build.pl
+	install -m 755 /tmp/diff-so-fancy ~/.local/bin/diff-so-fancy
+skip = true
+
+[$HOME/.local/lib/rbenv]
+checkout = git clone git://github.com/rbenv/rbenv.git $MR_REPO
+skip = true
+
+[$HOME/.local/lib/pyenv]
+checkout = git clone git://github.com/pyenv/pyenv.git $MR_REPO
+post_checkout = 
+fixups = src/configure && make -C src
+skip = true
+
+[$HOME/.local/lib/nvm]
+checkout = git clone git://github.com/nvm-sh/nvm.git $MR_REPO
+update = git pull origin v0.38.0 
+skip = true
+
+[$HOME/android/myandroid]
+checkout = git clone ssh://git@github.com/wandsas/myandroid.git $MR_REPO
+remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/myandroid.git
+fixups = 
+	[ -L ~/android/envsetup.sh ] || ln -s ~/android/myandroid/envsetup.sh ~/android
+skip = true
+
+[$HOME/src/orbot]
+checkout = git clone ssh://git@github.com/crosshatcher/orbot.git $MR_REPO
+remote = 
+	git_add_remotes "
+	  local ssh://git@rpi3.homelab/srv/git/orbot.git
+	  upstream git://github.com/guardianproject/orbot.git"
+skip = true
+
+[$HOME/src/k9mail]
+checkout = git clone ssh://git@github.com/crosshatcher/k9mail.git $MR_REPO
+remote = 
+	git_add_remotes "
+	  local ssh://git@rpi3.homelab/srv/git/k9mail.git
+	  upstream git://github.com/k9mail/k-9.git"
+skip = true
+
+[$HOME/src/open-keychain]
+checkout = git clone ssh://git@github.com/crosshatcher/open-keychain.git $MR_REPO
+remote = 
+	git_add_remotes "
+	  local ssh://git@rpi3.homelab/srv/git/open-keychain.git
+	  upstream git://github.com/open-keychain/open-keychain.git"
+skip = true
