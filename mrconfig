@@ -38,17 +38,17 @@ post_checkout =
   git config pull.ff only
 remote = git_add_remote local git://git@rpi3.homelab/srv/git/wandsas/vim-config.git
 fixups =
-  [ -f ~/.vim/vimrc.wandsas ] && ln -s ~/.vim/vimrc.wandsas ~/.vimrc
-  [ -f ~/.vim/gvimrc.wandsas ] && ln -s ~/.vim/gvimrc.wandsas ~/.gvimrc
+  [ -L ~/.vimrc ] || ln -s ~/.vim/vimrc.wandsas ~/.vimrc
+  [ -L ~/.gvimrc ] || ln -s ~/.vim/gvimrc.wandsas ~/.gvimrc
 
 [$HOME/.GIT/dev-vcs/diff-so-fancy]
 checkout = git clone git://github.com/so-fancy/diff-so-fancy.git $MR_REPO
 remote = git_add_remote local ssh://git@rpi3.homelab:/srv/git/diff-so-fancy.git
 fixups =
+  [ -f ~/.local/bin/diff-so-fancy ] && return
   ./third_party/build_fatpack/build.pl
-  install -d ~/.local/bin
+  mkdir -p ~/.local/bin
   install -m 755 /tmp/diff-so-fancy ~/.local/bin/diff-so-fancy
-skip = true
 
 [$HOME/.local/lib/rbenv]
 checkout = git clone git://github.com/rbenv/rbenv.git $MR_REPO
