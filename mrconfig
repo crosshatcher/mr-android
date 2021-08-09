@@ -12,16 +12,21 @@ name = mr-android
 chain = true
 checkout = git clone ssh://git@github.com/crosshatcher/mr-android.git
 remotes = git_add_remote local ssh://git@rpi3.homelab/srv/git/mr-android.git
-fixups = 
-	ensure_symlink_exists ~/.mrconfig $MR_REPO/mrconfig
-	ensure_symlink_exists ~/.stow-global-ignore $MR_REPO/.stow-global-ignore
+fixups =
+  ensure_symlink_exists ~/.mrconfig $MR_REPO/mrconfig
+  ensure_symlink_exists ~/.stow-global-ignore $MR_REPO/.stow-global-ignore
+
+[$HOME/.GIT/dev-vcs/kitenet-mr]
+checkout = git clone ssh://git@github.com/wandsas/kitenet-mr.git $MR_REPO
+remotes = git_add_remote local ssh://git@rpi3.homelab/srv/git/kitenet-mr.git
+fixups = make install	
 
 [$HOME/.password-store]
 name = pass-crosshatcher
 checkout = git clone ssh://git@rpi3.homelab/srv/git/crosshatcher/pass-crosshatcher.git $MR_REPO
 post_checkout = chmod go-rwx $MR_REPO
 
-[$HOME/.GIT/android/dotfiles-android]
+[$HOME/.GIT/$USER/dotfiles-android]
 stowable = true
 checkout = git clone ssh://git@github.com/crosshatcher/dotfiles-android.git
 remotes = git_add_remote local ssh://git@rpi3.homelab/srv/git/dotfiles-android.git
