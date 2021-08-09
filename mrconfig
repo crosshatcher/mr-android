@@ -8,7 +8,7 @@ lib = . ~/.config/mr/mr-functions
 
 [.config/mr]
 order = 1
-name = mr-config
+name = mr-android
 chain = true
 checkout = git clone ssh://git@rpi3.homelab/srv/git/mr-android.git
 fixups = 
