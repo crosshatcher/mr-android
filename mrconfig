@@ -22,7 +22,8 @@ post_checkout = chmod go-rwx $MR_REPO
 
 [$HOME/.GIT/android/dotfiles-android]
 stowable = true
-checkout = git clone ssh://git@rpi3.homelab/srv/git/dotfiles-android.git
+checkout = git clone ssh://git@github.com/crosshatcher/dotfiles-android.git
+remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/dotfiles-android.git
 
 [$HOME/.vim]
 checkout = git clone git://github.com/SpaceVim/SpaceVim.git $MR_REPO
@@ -56,7 +57,6 @@ checkout = git clone ssh://git@github.com/wandsas/myandroid.git $MR_REPO
 remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/myandroid.git
 fixups = 
 	[ -L ~/android/envsetup.sh ] || ln -s ~/android/myandroid/envsetup.sh ~/android
-skip = true
 
 [$HOME/src/orbot]
 checkout = git clone ssh://git@github.com/crosshatcher/orbot.git $MR_REPO
