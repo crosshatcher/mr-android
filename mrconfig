@@ -45,7 +45,6 @@ skip = true
 
 [$HOME/.local/lib/pyenv]
 checkout = git clone git://github.com/pyenv/pyenv.git $MR_REPO
-post_checkout = 
 fixups = src/configure && make -C src
 skip = true
 
@@ -60,13 +59,6 @@ remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/myandroid.git
 fixups = 
 	[ -L ~/android/envsetup.sh ] || ln -s ~/android/myandroid/envsetup.sh ~/android
 
-[$HOME/src/orbot]
-checkout = git clone ssh://git@github.com/crosshatcher/orbot.git $MR_REPO
-remote = 
-	git_add_remotes "
-	  local ssh://git@rpi3.homelab/srv/git/orbot.git
-	  upstream git://github.com/guardianproject/orbot.git"
-
 [$HOME/src/k9mail]
 checkout = git clone ssh://git@github.com/crosshatcher/k9mail.git $MR_REPO
 remote = 
@@ -74,8 +66,22 @@ remote =
 	  local ssh://git@rpi3.homelab/srv/git/k9mail.git
 	  upstream git://github.com/k9mail/k-9.git"
 
+[$HOME/src/orbot]
+checkout = git clone ssh://git@github.com/crosshatcher/orbot.git $MR_REPO
+post_checkout =
+  git submodule init
+  git submodule update --recursive
+remote = 
+	git_add_remotes "
+	  local ssh://git@rpi3.homelab/srv/git/orbot.git
+	  upstream git://github.com/guardianproject/orbot.git"
+
+
 [$HOME/src/open-keychain]
 checkout = git clone ssh://git@github.com/crosshatcher/open-keychain.git $MR_REPO
+post_checkout =
+  git submodule init
+  git submodule update --recursive
 remote = 
 	git_add_remotes "
 	  local ssh://git@rpi3.homelab/srv/git/open-keychain.git
