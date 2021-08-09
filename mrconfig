@@ -33,6 +33,9 @@ skip = true
 
 [$HOME/.vim]
 checkout = git clone ssh://git@github.com/wandsas/vim-config.git $MR_REPO
+post_checkout =
+  cd $MR_REPO
+  git config pull.ff only
 remote = git_add_remote local git://git@rpi3.homelab/srv/git/wandsas/vim-config.git
 fixups =
   [ -f ~/.vim/vimrc.wandsas ] && ln -s ~/.vim/vimrc.wandsas ~/.vimrc
