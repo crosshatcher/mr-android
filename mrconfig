@@ -10,7 +10,8 @@ lib = . ~/.config/mr/mr-functions
 order = 1
 name = mr-android
 chain = true
-checkout = git clone ssh://git@rpi3.homelab/srv/git/mr-android.git
+checkout = git clone ssh://git@github.com/crosshatcher/mr-android.git
+remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/mr-android.git
 fixups = 
 	ensure_symlink_exists ~/.mrconfig $MR_REPO/mrconfig
 	ensure_symlink_exists ~/.stow-global-ignore $MR_REPO/.stow-global-ignore
