@@ -33,10 +33,10 @@ remote = git_add_remote local ssh://git@rpi3.homelab/srv/git/SpaceVim.git
 [$HOME/.GIT/dev-vcs/diff-so-fancy]
 checkout = git clone git://github.com/so-fancy/diff-so-fancy.git $MR_REPO
 remote = git_add_remote local ssh://git@rpi3.homelab:/srv/git/diff-so-fancy.git
-fixups = 
-	./third_party/build_fatpack/build.pl
+fixups =
+  ./third_party/build_fatpack/build.pl
   install -d ~/.local/bin
-	install -m 755 /tmp/diff-so-fancy ~/.local/bin/diff-so-fancy
+  install -m 755 /tmp/diff-so-fancy ~/.local/bin/diff-so-fancy
 skip = true
 
 [$HOME/.local/lib/rbenv]
