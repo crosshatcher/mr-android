@@ -64,7 +64,6 @@ remote =
 	git_add_remotes "
 	  local ssh://git@rpi3.homelab/srv/git/orbot.git
 	  upstream git://github.com/guardianproject/orbot.git"
-skip = true
 
 [$HOME/src/k9mail]
 checkout = git clone ssh://git@github.com/crosshatcher/k9mail.git $MR_REPO
@@ -72,7 +71,6 @@ remote =
 	git_add_remotes "
 	  local ssh://git@rpi3.homelab/srv/git/k9mail.git
 	  upstream git://github.com/k9mail/k-9.git"
-skip = true
 
 [$HOME/src/open-keychain]
 checkout = git clone ssh://git@github.com/crosshatcher/open-keychain.git $MR_REPO
@@ -80,4 +78,3 @@ remote =
 	git_add_remotes "
 	  local ssh://git@rpi3.homelab/srv/git/open-keychain.git
 	  upstream git://github.com/open-keychain/open-keychain.git"
-skip = true
