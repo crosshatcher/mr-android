@@ -70,9 +70,11 @@ fixups = src/configure && make -C src
 skip = true
 
 [$HOME/.local/lib/nvm]
-checkout = git clone git://github.com/nvm-sh/nvm.git $MR_REPO
-update = git pull origin v0.38.0 
-skip = true
+checkout = git clone -b v0.38.0 git://github.com/nvm-sh/nvm.git $MR_REPO
+update = git pull origin v0.38.0
+fixups =
+  [ -f ~/.npmrc ] || echo "prefix=${HOME}/.npm-global
+  ( -d ~/.npm-global
 
 [$HOME/android/myandroid]
 checkout = git clone ssh://git@github.com/wandsas/myandroid.git $MR_REPO
