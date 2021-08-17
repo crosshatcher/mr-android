@@ -74,7 +74,8 @@ checkout = git clone -b v0.38.0 git://github.com/nvm-sh/nvm.git $MR_REPO
 update = git pull origin v0.38.0
 fixups =
   [ -f ~/.npmrc ] || echo "prefix=${HOME}/.npm-global
-  ( -d ~/.npm-global
+  [ -d ~/.npm-global ] mkdir -p $/HOME}/.npm-global
+skip = ! my_workstation
 
 [$HOME/android/myandroid]
 checkout = git clone ssh://git@github.com/wandsas/myandroid.git $MR_REPO
