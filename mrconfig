@@ -72,7 +72,7 @@ fixups =
   [ -d ~/.npm-global ] mkdir -p $/HOME}/.npm-global
 skip = ! my_workstation
 
-[$HOME/android/myandroid]
+[$HOME/java/myandroid]
 checkout = git clone ssh://git@github.com/wandsas/myandroid.git $MR_REPO
 remotes = git_add_remote local ssh://git@rpi3.homelab/var/git/myandroid.git
 fixups = 
